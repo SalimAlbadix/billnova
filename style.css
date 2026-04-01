@@ -171,6 +171,15 @@ nav a.active {
   text-decoration: underline;
 }
 
+.content a.btn {
+  color: #fff;
+}
+
+.content a.btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
 /* Support card */
 .support-card {
   background: linear-gradient(145deg, #f5f5f7, #fafafa);
