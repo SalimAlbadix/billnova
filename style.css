@@ -171,13 +171,12 @@ nav a.active {
   text-decoration: underline;
 }
 
-.content a.btn {
-  color: #fff;
-}
-
-.content a.btn:hover {
-  color: #fff;
-  text-decoration: none;
+.content a.btn,
+.content a.btn:visited,
+.content a.btn:hover,
+.content a.btn:active {
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 /* Support card */
