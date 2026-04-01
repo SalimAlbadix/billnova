@@ -5,161 +5,326 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #1d1d1f;
   background: #fff;
-  line-height: 1.6;
+  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
+/* Fade-in animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Header */
 header {
-  border-bottom: 1px solid #e5e5e5;
-  padding: 16px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+header .inner {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 14px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 960px;
-  margin: 0 auto;
 }
 
 header .logo {
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 700;
   color: #1d1d1f;
   text-decoration: none;
+  letter-spacing: -0.3px;
+}
+
+nav {
+  display: flex;
+  gap: 8px;
 }
 
 nav a {
-  margin-left: 24px;
-  font-size: 14px;
-  color: #6e6e73;
+  font-size: 13px;
+  color: #424245;
   text-decoration: none;
-  padding: 6px 12px;
-  border-radius: 6px;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 nav a:hover {
   color: #1d1d1f;
-  background: #f5f5f7;
+  background: rgba(0, 0, 0, 0.04);
 }
 
+nav a.active {
+  color: #fff;
+  background: #1d1d1f;
+}
+
+/* Hero */
 .hero {
   text-align: center;
-  padding: 80px 24px 60px;
-  max-width: 640px;
+  padding: 100px 24px 80px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: 40px;
+  font-size: 56px;
   font-weight: 700;
-  letter-spacing: -0.5px;
-  margin-bottom: 16px;
+  letter-spacing: -0.015em;
+  line-height: 1.07;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #1d1d1f 0%, #424245 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .hero p {
-  font-size: 18px;
-  color: #6e6e73;
+  font-size: 21px;
+  color: #86868b;
+  font-weight: 400;
+  line-height: 1.38;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
+/* Content sections */
 .content {
-  max-width: 680px;
+  max-width: 720px;
   margin: 0 auto;
-  padding: 40px 24px 80px;
+  padding: 0 24px 100px;
 }
 
 .content h1 {
-  font-size: 32px;
+  font-size: 48px;
   font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
   margin-bottom: 8px;
 }
 
 .content .updated {
-  font-size: 14px;
-  color: #6e6e73;
-  margin-bottom: 32px;
+  font-size: 15px;
+  color: #86868b;
+  margin-bottom: 48px;
 }
 
 .content h2 {
-  font-size: 20px;
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 48px;
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+
+.content h3 {
+  font-size: 19px;
   font-weight: 600;
   margin-top: 32px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
 
 .content p,
 .content ul {
-  font-size: 15px;
+  font-size: 17px;
   color: #424245;
   margin-bottom: 16px;
+  line-height: 1.58;
 }
 
 .content ul {
-  padding-left: 20px;
+  padding-left: 24px;
 }
 
 .content li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .content a {
-  color: #0066cc;
+  color: #06c;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .content a:hover {
+  color: #0055b3;
   text-decoration: underline;
 }
 
+/* Support card */
 .support-card {
-  background: #f5f5f7;
-  border-radius: 12px;
-  padding: 32px;
+  background: linear-gradient(145deg, #f5f5f7, #fafafa);
+  border-radius: 20px;
+  padding: 56px 40px;
   text-align: center;
-  margin: 40px 0;
+  margin: 64px 0;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.support-card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
 }
 
 .support-card h2 {
   margin-top: 0;
+  font-size: 28px;
 }
 
 .support-card p {
   margin-bottom: 8px;
+  font-size: 17px;
+  color: #86868b;
 }
 
+/* Buttons */
 .btn {
   display: inline-block;
   background: #1d1d1f;
   color: #fff;
-  padding: 14px 32px;
-  border-radius: 8px;
-  font-size: 15px;
-  font-weight: 600;
+  padding: 16px 36px;
+  border-radius: 980px;
+  font-size: 17px;
+  font-weight: 500;
   text-decoration: none;
-  margin-top: 16px;
+  margin-top: 20px;
+  transition: all 0.4s ease;
+  letter-spacing: -0.01em;
 }
 
 .btn:hover {
-  background: #333;
+  background: #424245;
+  transform: scale(1.04);
   text-decoration: none;
 }
 
-footer {
-  border-top: 1px solid #e5e5e5;
-  padding: 24px;
+/* Section divider */
+.section-break {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.08), transparent);
+  margin: 60px auto;
+  max-width: 720px;
+}
+
+/* FAQ items */
+.faq-item {
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-item h3 {
+  margin-top: 0;
+  font-size: 19px;
+  transition: color 0.3s ease;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+}
+
+/* Page header for legal pages */
+.page-header {
   text-align: center;
-  font-size: 13px;
-  color: #86868b;
-  max-width: 960px;
+  padding: 100px 24px 60px;
+  max-width: 720px;
   margin: 0 auto;
 }
 
+.page-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.page-header .updated {
+  font-size: 15px;
+  color: #86868b;
+}
+
+/* Footer */
+footer {
+  background: #f5f5f7;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+footer .inner {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+footer p {
+  font-size: 13px;
+  color: #86868b;
+  margin-bottom: 12px;
+}
+
+footer .links {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
 footer a {
-  color: #6e6e73;
+  color: #424245;
   text-decoration: none;
-  margin: 0 12px;
+  font-size: 13px;
+  transition: color 0.3s ease;
 }
 
 footer a:hover {
   color: #1d1d1f;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .content h1,
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .support-card {
+    padding: 40px 24px;
+  }
+
+  nav a {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
 }
